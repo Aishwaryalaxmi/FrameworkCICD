@@ -19,19 +19,9 @@ jobs:
           -archivePath './archives/Framework-Simulator' \
           SKIP_INSTALL=NO \
           BUILD_LIBRARY_FOR_DISTRIBUTION=YES
-      - name: Build Device XCFramework
-        run: |
-          xcodebuild archive \
-          -scheme FrameworkCICD \
-          -configuration Release \
-          -destination 'generic/platform=iOS’ \
-          -archivePath './archives/Framework' \
-          SKIP_INSTALL=NO \
-          BUILD_LIBRARY_FOR_DISTRIBUTION=YES
       - name: Build Universal XCFramework
         run: |
           xcodebuild -create-xcframework \
-          -framework archives/Framework.xcarchive/Products/Library/Frameworks/FrameworkCICD.framework \
           -framework archives/Framework-Simulator.xcarchive/Products/Library/Frameworks/FrameworkCICD.framework \
           -output ./FrameworkCICD.xcframework
       - name: Commit
