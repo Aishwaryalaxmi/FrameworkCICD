@@ -1,0 +1,6 @@
+framework module FrameworkCICD {
+  umbrella header "FrameworkCICD.h"
+
+  export *
+  module * { export * }
+}
