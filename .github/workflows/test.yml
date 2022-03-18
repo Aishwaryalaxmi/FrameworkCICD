@@ -33,3 +33,6 @@ jobs:
           git add .
           git commit -m "Added framework"
           git push
+      - name: Delete Archives
+        run: |
+            rm -rf ./archives
