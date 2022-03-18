@@ -27,12 +27,12 @@ jobs:
           xcodebuild -create-xcframework \
           -framework archives/Framework-Simulator.xcarchive/Products/Library/Frameworks/FrameworkCICD.framework \
           -output ./FrameworkCICD.xcframework
+      - name: Delete Archives
+        run: |
+         rm -rf ./archives
       - name: Commit
         run: |
           # Stage the file, commit and push
           git add .
           git commit -m "Added framework"
           git push
-      - name: Delete Archives
-        run: |
-            rm -rf ./archives
